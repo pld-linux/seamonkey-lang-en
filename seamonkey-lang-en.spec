@@ -25,10 +25,10 @@ British resources for SeaMonkey.
 Brytyjskie pliki jêzykowe dla SeaMonkeya.
 
 %prep
-%setup -q -c -T
-unzip %{SOURCE0}
+%setup -q -c
 install %{SOURCE1} .
-./gen-installed-chrome.sh locale bin/chrome/{en-GB,en-GB-unix}.jar > lang-en-installed-chrome.txt
+./gen-installed-chrome.sh locale bin/chrome/{en-GB,en-GB-unix}.jar \
+	> lang-en-installed-chrome.txt
 
 %install
 rm -rf $RPM_BUILD_ROOT
