@@ -1,11 +1,14 @@
+%define	_lang	en
+%define	_reg	GB
+%define	_lare	%{_lang}-%{_reg}
 Summary:	British resources for SeaMonkey
 Summary(pl):	Brytyjskie pliki jêzykowe dla SeaMonkeya
-Name:		seamonkey-lang-en
+Name:		seamonkey-lang-%{_lang}
 Version:	1.0
 Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
-Source0:	http://ftp.mozilla.org/pub/mozilla.org/seamonkey/releases/%{version}/contrib-localized/seamonkey-%{version}.en-GB.langpack.xpi
+Source0:	http://ftp.mozilla.org/pub/mozilla.org/seamonkey/releases/%{version}/contrib-localized/seamonkey-%{version}.%{_lare}.langpack.xpi
 # Source0-md5:	2ca823bebb31d34c792d6c2ddd614874
 Source1:	gen-installed-chrome.sh
 URL:		http://www.mozilla.org/projects/seamonkey/
@@ -27,15 +30,15 @@ Brytyjskie pliki jêzykowe dla SeaMonkeya.
 %prep
 %setup -q -c
 install %{SOURCE1} .
-./gen-installed-chrome.sh locale bin/chrome/{en-GB,en-GB-unix}.jar \
-	> lang-en-installed-chrome.txt
+./gen-installed-chrome.sh locale bin/chrome/{%{_lare},%{_lare}-unix}.jar \
+	> lang-%{_lang}-installed-chrome.txt
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_chromedir}
 
-install bin/chrome/{en-GB,en-GB-unix}.jar $RPM_BUILD_ROOT%{_chromedir}
-install lang-en-installed-chrome.txt $RPM_BUILD_ROOT%{_chromedir}
+install bin/chrome/{%{_lare},%{_lare}-unix}.jar $RPM_BUILD_ROOT%{_chromedir}
+install lang-%{_lang}-installed-chrome.txt $RPM_BUILD_ROOT%{_chromedir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -48,6 +51,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%{_chromedir}/en-GB.jar
-%{_chromedir}/en-GB-unix.jar
-%{_chromedir}/lang-en-installed-chrome.txt
+%{_chromedir}/%{_lare}.jar
+%{_chromedir}/%{_lare}-unix.jar
+%{_chromedir}/lang-%{_lang}-installed-chrome.txt
