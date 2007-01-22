@@ -4,12 +4,12 @@
 Summary:	British resources for SeaMonkey
 Summary(pl):	Brytyjskie pliki jêzykowe dla SeaMonkeya
 Name:		seamonkey-lang-%{_lang}
-Version:	1.0
+Version:	1.1
 Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
 Source0:	http://ftp.mozilla.org/pub/mozilla.org/seamonkey/releases/%{version}/contrib-localized/seamonkey-%{version}.%{_lare}.langpack.xpi
-# Source0-md5:	2ca823bebb31d34c792d6c2ddd614874
+# Source0-md5:	de036fa5eaf9649197d04f7c5c25cf2c
 Source1:	gen-installed-chrome.sh
 URL:		http://www.mozilla.org/projects/seamonkey/
 BuildRequires:	unzip
